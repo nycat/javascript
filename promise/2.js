@@ -22,3 +22,23 @@ timeout(3 * 1000, true).then((data) => {
 
 console.log(2)
 
+
+
+/**
+* the resolved/rejected data for a promise obeject can be another promise object
+**/
+const p1 = new Promise((resolve, reject) => {
+  // resolve('resolved param for p1')
+  reject('rejected param for p1')
+})
+
+const p2 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    //the resolved result is `rejected param for p1`
+    resolve(p1)
+  }, 1000)
+})
+
+p2.then(data => {
+  console.log(data)
+})
