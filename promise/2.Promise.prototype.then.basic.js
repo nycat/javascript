@@ -12,7 +12,7 @@ const p2 = p1.then((data) => {
 })
 console.log(`p1 === p2: ${p1 === p2}`)
 
-//param of p2's callbackfunction comes from returned data from p1
+//param of p2's callback function comes from returned data from p1
 p2.then((data)  => {
   console.log(data)
 })
