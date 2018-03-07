@@ -11,11 +11,13 @@ Promise.prototype.finally = function(cb = () => {}){
   )
 }
 
-new Promise((resolve, reject) => {
+new Promise((resolve) => {
   resolve(1)
 }).then(() => {
 }).catch((err) => {
-  // import as a standard in es2018
+  console.log(err)
 }).finally(() => {
+  // import as a standard in es2018
   console.log('always be called')
 })
+

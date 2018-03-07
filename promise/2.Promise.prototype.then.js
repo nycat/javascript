@@ -19,3 +19,4 @@ p1.then(() => {
   // callback excuted after p4 resolved
   console.log('done')
 })
+

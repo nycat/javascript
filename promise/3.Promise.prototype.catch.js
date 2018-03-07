@@ -2,7 +2,7 @@
 * Promise.prototype.catch is the alias of .then(null, rejection)
 * will be called when some error happen
 **/
-const p1 = new Promise((resolve, reject) => {
+const p1 = new Promise((resolve) => {
   return resolve('resolved data for p1!')
 })
 
@@ -28,5 +28,4 @@ const p2 = new Promise((resolve, reject) => {
 p2.then(() => {
   console.log('every thing is fine')
 })
-
 

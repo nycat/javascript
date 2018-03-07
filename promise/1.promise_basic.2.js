@@ -25,3 +25,4 @@ p2.then((data) => {
 * 1. put return before reject/resolve to avoid redundant code
 * 2. awalys have catch callback function
 **/
+

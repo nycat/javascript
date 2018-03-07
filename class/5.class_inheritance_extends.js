@@ -46,4 +46,3 @@ console.log(`cPoint is instanceof Point: ${cPoint instanceof Point}`)
 
 console.log(`Object.getPrototypeOf(ColorPoint) === Point: ${Object.getPrototypeOf(ColorPoint) === Point}`)
 
-

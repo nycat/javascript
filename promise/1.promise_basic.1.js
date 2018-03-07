@@ -11,6 +11,8 @@ function timeout (ms, flag) {
       } else {
         reject(flag)
       }
+      clearTimeout(t1)
+      t1 = null
     }, ms)
   })
 }
@@ -32,7 +34,7 @@ const p1 = new Promise((resolve, reject) => {
   reject('rejected param for p1')
 })
 
-const p2 = new Promise((resolve, reject) => {
+const p2 = new Promise((resolve) => {
   setTimeout(() => {
     /**
     * the resolved result is `rejected param for p1`
@@ -45,3 +47,4 @@ const p2 = new Promise((resolve, reject) => {
 p2.then(data => {
   console.log(data)
 })
+

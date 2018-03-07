@@ -45,5 +45,3 @@ promise.then((data) => {
 
 console.log('hi')
 
-
-

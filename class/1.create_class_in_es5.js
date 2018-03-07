@@ -14,6 +14,7 @@ Point.prototype.toString= function(){
 
 var p = new Point(10, 10)
 console.log(Point.prototype.constructor === Point)
+console.log(p.constructor === Point.prototype.constructor)
 
 // p2 is undefined
 var p2 = Point(12, 12)
