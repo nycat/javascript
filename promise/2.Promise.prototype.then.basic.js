@@ -16,5 +16,3 @@ console.log(`p1 === p2: ${p1 === p2}`)
 p2.then((data)  => {
   console.log(data)
 })
-
-
