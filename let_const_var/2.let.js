@@ -26,3 +26,4 @@ function foo(varible) {
 }
 
 console.log(foo)
+

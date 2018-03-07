@@ -11,3 +11,4 @@ try {
   // statements
   console.log(e)
 }
+
