@@ -2,7 +2,7 @@
 * return promise instance in callback function
 */
 
-const p1 = new Promise((resolve, reject) => {
+const p1 = new Promise((resolve) => {
   console.log(1)
   resolve()
 })
