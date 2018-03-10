@@ -4,3 +4,4 @@ const adminPromise = Promise.reject(admin)
 adminPromise.catch(e => {
   console.log(e)
 })
+

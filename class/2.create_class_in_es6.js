@@ -33,3 +33,4 @@ console.log(`p has own protoperty toString: ${p.hasOwnProperty('toString')}`)
 // The prototype object owned by its all the instance object
 var p2 = new Point(5, 5)
 console.log(`p2.__proto__ === p2.__proto__: ${p2.__proto__ === p2.__proto__}`)
+

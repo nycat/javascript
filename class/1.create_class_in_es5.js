@@ -6,6 +6,7 @@ function Point (x, y) {
   // this is returned by default
   this.x = x
   this.y = y
+  // return this by default
 }
 
 Point.prototype.toString= function(){
