@@ -1,4 +1,4 @@
-// Promise.resolve used to convert an object into a Promise instance
+// Convert admin object to a Promise object.
 const admin = {name: 'admin'}
 const adminPromise = Promise.resolve(admin)
 

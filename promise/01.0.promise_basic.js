@@ -1,6 +1,5 @@
 /**
-* nested callback is a nightmare in javascript programming, promise is a new solution 
-* to function callback
+
 **/
 
 /**
@@ -9,8 +8,8 @@
 * 1: pending
 * 2: fulfilled (resolved)
 * 3: rejected (resolved)
-* Once the status of a Promise object settled, nothing can change the promise status of it.
-* Compared with event callback, event the status of a promise object is resolved, u can also add a callback on it and get the resolved status
+* Once the status of a promise object settled, nothing can change its status.
+* Compared with event solution,u can also add a callback on a promise Object and get the resolved status even if its status is resolved.
 **/
 
 /** Basic usage

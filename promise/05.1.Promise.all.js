@@ -1,9 +1,7 @@
-/**
-*
-**/
 const p1 = new Promise(resolve => resolve(1))
+// rejected status for p2 is not catched
 const p2 = new Promise((resolve, reject) => reject(2)).catch(e => {
-  console.log(e)
+  return e
 })
 const p3 = new Promise(resolve => resolve(3))
 

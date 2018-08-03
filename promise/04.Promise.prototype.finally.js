@@ -2,7 +2,7 @@
 * finally callback function
 **/
 
-// extend finanlly callback for promise instance where es version is before es2018
+// a pollify for  Promise.prototype.finnaly bellow es2018 standard
 Promise.prototype.finally = function(cb = () => {}){
   var P = this.constructor
   return this.then(
@@ -17,7 +17,7 @@ new Promise((resolve) => {
 }).catch((err) => {
   console.log(err)
 }).finally(() => {
-  // import as a standard in es2018
+  // imported in es2018 standard
   console.log('always be called')
 })
 
