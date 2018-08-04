@@ -75,6 +75,7 @@ someNode.hasChildNodes()
 ## Manipulating Nodes
 ### Locate an element
 Quickly find element on document node
+- document.head
 - document.documentElement, document.body
 - document.forms (all the form elements)
 - document.anchors (contain all a html tag with an attribute name on it.)
@@ -106,5 +107,6 @@ Get the attributes of a node
 - cloneNode
 
 
+# Working with the DOM
 
 
