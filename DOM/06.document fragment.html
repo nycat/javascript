@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>document fragment</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+  <div class="container">
+    <div class="goods-box">
+      <ul class="goods-list" id="goodsList">
+        <!-- I'm a comment -->
+        <li class="list-item"><span class="name">#.1.good</span></li>
+        <li class="list-item"><span class="name">#.2.good</span></li>
+        <li class="list-item"><span class="name">#.3.good</span></li>
+      </ul>
+    </div>
+  </div>
+  <script>
+   (function () {
+    var $goodsList = document.getElementById('goodsList').cloneNode(false)
+    var fragment = document.createDocumentFragment()
+
+    for (var i = 0, len = 4; i < len; i++) {
+      var textIndex = 3 + i
+      var oLi = document.createElement('li')
+      oLi.className = 'list-item'
+      oLi.innerHTML = `<span class="name">#${textIndex}.good</span>`
+      fragment.appendChild(oLi)
+    }
+    
+    $goodsList.appendChild(fragment)
+    document.getElementsByClassName('goods-box')[0].appendChild($goodsList)
+   }) ()
+  </script>
+</body>
+</html>
