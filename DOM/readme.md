@@ -113,3 +113,10 @@ Get the attributes of a node
 Please referer to 
 - <a href="./05.01.load script.html">load script.html</a>
 - <a href="./05.02.load style.html">load style.html</a>
+<br>
+
+**NodeList, HTMLCollections and NameNodeMap are dynamic**, which means they are responsive to dom change. In reality, all NodeList objects are queries that
+are run against the DOM document whenever they are accessed. <br>
+
+Generally speaking, it is best to limit the number of times you interact with a NodeList. Since a query
+is run against the document each time, try to cache frequently used values retrieved from a NodeList.
