@@ -70,6 +70,35 @@ the time it was first accessed.<br>
 ```javascript
 someNode.hasChildNodes()
 ```
+<br><br>
+
+## Manipulating Nodes
+#### How to query node
+```javascript
+(function () {
+  // 1. getElementById
+  var $goodList = document.getElementById('goodsList')
+  console.log($goodList)
+
+  // 2. querySelector, return the first founded result
+  var $listItemOne = $goodList.querySelector('.list-item')
+  console.log($listItemOne)
+
+  // 3. querySelectorAll, the return value is a array-like object.
+  var $ListItems = document.querySelectorAll('.list-item')
+  console.log($ListItems.length)
+
+  // 4. getElementsByClassName, the return value is a array-like object.
+  var $itemNames = $goodList.getElementsByClassName('name')
+  console.log($itemNames.item(0).innerHTML)
+
+  // 5. getElementsByTagName, the return value is a array-like object.
+  var $spanNodes = document.getElementsByTagName('span')
+  console.log($spanNodes[0].innerText)
+  
+  // 6. query a node by node relationships
+}) ()
+```
 
 
 

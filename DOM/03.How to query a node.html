@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>How to query nodes</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+  <div class="container">
+    <div class="goods-box">
+      <ul class="goods-list" id="goodsList">
+        <!-- I'm a comment -->
+        <li class="list-item"><span class="name">#.1.good</span></li>
+        <li class="list-item"><span class="name">#.2.good</span></li>
+        <li class="list-item"><span class="name">#.3.good</span></li>
+      </ul>
+    </div>
+  </div>
+  <script>
+    (function () {
+      // 1. getElementById
+      var $goodList = document.getElementById('goodsList')
+      console.log($goodList)
+
+      // 2. querySelector, return the first founded result
+      var $listItemOne = $goodList.querySelector('.list-item')
+      console.log($listItemOne)
+
+      // 3. querySelectorAll, the return value is a array-like object.
+      var $ListItems = document.querySelectorAll('.list-item')
+      console.log($ListItems.length)
+
+      // 4. getElementsByClassName, the return value is a array-like object.
+      var $itemNames = $goodList.getElementsByClassName('name')
+      console.log($itemNames.item(0).innerHTML)
+
+      // 5. getElementsByTagName, the return value is a array-like object.
+      var $spanNodes = document.getElementsByTagName('span')
+      console.log($spanNodes[0].innerText)
+      
+      // 6. query a node by node relationships
+    }) ()
+  </script>
+</body>
+</html>
