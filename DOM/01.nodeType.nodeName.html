@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>nodeType, nodeName, nodeValue</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+  <div class="container">
+    <div class="goods-box">
+      <ul class="goods-list" id="goodsList">
+        <!-- I'm a comment -->
+        <li class="list-item"><span class="name">#.1.good</span></li>
+        <li class="list-item"><span class="name">#.2.good</span></li>
+        <li class="list-item"><span class="name">#.3.good</span></li>
+      </ul>
+    </div>
+  </div>
+  <script>
+    (function () {
+      // all the html node is a instance of Node Class
+      console.log(`document is a instance of Node: ${document instanceof Node}`)
+      // a html node has a nodeType property
+      console.log(`document.nodeType: ${document.nodeType}`)
+
+
+      // For elements, nodeName is always equal to the element’s tag name, and nodeValue is always null.
+      console.log(document.nodeName)
+      console.log(document.body.nodeName)
+      console.log(document.body.nodeValue)
+
+      var firstSpan = document.getElementsByTagName('span')[0]
+      // firstSpan.firstChild is a text node
+      console.log(`firstSpan.firstChild.nodeValue: ${firstSpan.firstChild.nodeValue}`)
+
+      // comment node
+      var oComentNode = document.getElementById('goodsList').firstChild.nextSibling
+      console.log(oComentNode, oComentNode.nodeValue)
+      console.log(oComentNode.nodeType)
+      console.log(oComentNode.nodeName)
+
+    }) ()
+  </script>
+</body>
+</html>
