@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Node Relationships</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+  <div class="container">
+    <div class="goods-box">
+      <ul class="goods-list" id="goodsList">
+        <!-- I'm a comment -->
+        <li class="list-item"><span class="name">#.1.good</span></li>
+        <li class="list-item"><span class="name">#.2.good</span></li>
+        <li class="list-item"><span class="name">#.3.good</span></li>
+      </ul>
+    </div>
+  </div>
+  <script>
+    (function () {
+      // each node has a property childNodes which contains a NodeList. NodeList is an array-like object used to store an ordered list of nodes that are accessible by position.
+      var bodyChildNodes = document.body.childNodes
+      console.log(`document.body.childNodes instanceof NodeList: ${bodyChildNodes.childNodes instanceof NodeList}`)
+      console.log(bodyChildNodes.length)
+
+      // convert array-like NodeList into array
+      // work after IE 8
+      var children = Array.prototype.slice.call(bodyChildNodes, 0)
+      console.log(children)
+
+      // Child Relationships
+      var goodLists = document.getElementById('goodsList')
+
+      console.log(goodLists.parentNode)
+      console.log(goodsList.childNodes)
+      console.log(goodLists.firstChild)
+      console.log(goodLists.lastChild)
+
+      var firstGood = goodLists.getElementsByTagName('li')[0]
+      console.log(firstGood)
+      console.log(firstGood.nextSibling)
+      console.log(firstGood.previousSibling)
+
+      // to detect goodLists has child nodes or not
+      console.log(`goodLists.hasChildNodes():${goodLists.hasChildNodes()}`)
+
+    }) ()
+  </script>
+</body>
+</html>

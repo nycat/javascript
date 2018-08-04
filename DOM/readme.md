@@ -53,6 +53,24 @@ console.log(document.documentElement.nodeName)
 ```
 
 
+## Node Relationships
+
+![DOM hierachy](./includes/03.node_relationships.png).<br>
+
+As all the html node is an instance of **Node** Class. so some properties and functions of a node can be reckoned from **Node.prototype**. <br>
+
+- **ChildNodes**
+<br>Each node has a property **childNodes** which contains a NodeList. NodeList is an array-like object used to store an ordered list of nodes that are accessible by position.<br>
+It is often said that a NodeList is a living, breathing object rather than a snapshot of what happened at
+the time it was first accessed.<br>
+- **parentNode**
+- nextSibling, previousSibling
+- firstChild, lastChild
+- Detect a node has child node or not
+```javascript
+someNode.hasChildNodes()
+```
+
 
 
 
