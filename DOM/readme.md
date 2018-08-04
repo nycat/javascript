@@ -109,4 +109,7 @@ Get the attributes of a node
 
 # Working with the DOM
 
-
+## Dynamic load css and js script
+Please referer to 
+- <a href="./05.01.load script.html">load script.html</a>
+- <a href="./05.02.load style.html">load style.html</a>

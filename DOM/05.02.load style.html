@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>How to query nodes</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+  <div class="container">
+    <div class="goods-box">
+      <ul class="goods-list" id="goodsList">
+        <!-- I'm a comment -->
+        <li class="list-item"><span class="name">#.1.good</span></li>
+        <li class="list-item"><span class="name">#.2.good</span></li>
+        <li class="list-item"><span class="name">#.3.good</span></li>
+      </ul>
+    </div>
+  </div>
+  <script>
+   (function () {
+    function loadScript (source) {
+      var oStyleSheet = document.createElement('link')
+      oStyleSheet.href = source
+      oStyleSheet.rel = 'stylesheet'
+      document.head.appendChild(oStyleSheet)
+    }
+
+    setTimeout(() => {
+      loadScript('./css/loadcss.demo.css')
+    }, 3 * 1000)
+   }) ()
+  </script>
+</body>
+</html>
