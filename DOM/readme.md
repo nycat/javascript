@@ -73,6 +73,14 @@ someNode.hasChildNodes()
 <br><br>
 
 ## Manipulating Nodes
+### Create element, textNode, comment and attribute
+- document.createElement
+- document.createDocumentFragment
+- document.createTextNode
+- document.createComment
+- document.createAttribute
+
+<br>
 ### Locate an element
 Quickly find element on document node
 - document.head
@@ -81,7 +89,7 @@ Quickly find element on document node
 - document.anchors (contain all a html tag with an attribute name on it.)
 <br>
 
-Some dom acess functions
+Some dom access functions
 - document.getElementById
 - document.querySelector
 - document.querySelectorAll
