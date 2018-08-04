@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>How to query nodes</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+  <div class="container">
+    <div class="goods-box">
+      <ul class="goods-list" id="goodsList">
+        <!-- I'm a comment -->
+        <li class="list-item"><span class="name">#.1.good</span></li>
+        <li class="list-item"><span class="name">#.2.good</span></li>
+        <li class="list-item"><span class="name">#.3.good</span></li>
+      </ul>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var $goodList = document.getElementById('goodsList')
+
+      // 1. appendChild
+      var newItem1 = createANode('li', 'list-item', `<span class="name">appendChild(node: Node)</span>`)
+      // append newItem to goodsList
+      $goodList.appendChild(newItem1)
+
+
+      // 2. replace a Child
+      var newItem2 = createANode('li', 'list-item', `
+      <span class="name">replaceChild(node: Node, child: Node)</span>`)
+      var $item2 = $goodList.querySelectorAll('.list-item')[1]
+      $goodList.replaceChild(newItem2, $item2)
+
+
+      // 3. insertBefore
+      var newItem3 = createANode('li', 'list-item', `
+      <span class="name">insertBefore(node: Node, child: Node)</span>`)
+      var $item1 = $goodList.querySelectorAll('.list-item')[0]
+      $goodList.insertBefore(newItem3, $item1)
+
+
+      // 4. insertAfter
+      var newItem4 = createANode('li', 'list-item', `
+      <span class="name">insertAfter(node: Node, child: Node)</span>`)
+      $goodList.insertBefore(newItem4, $goodList.lastChild)
+
+
+      // 5. cloneNode
+      var $newGoodList = $goodList.cloneNode(true)
+      console.log($newGoodList)
+
+      document.querySelector('.goods-box').appendChild($newGoodList)
+
+      function createANode (tagName, className, innerHTML) {
+        // oEle.nodeType is Node.ELEMENT_NODE
+        var oEle = document.createElement(tagName)
+
+        oEle.className = className
+        oEle.innerHTML = innerHTML || ''
+
+        return oEle
+      }
+    }) ()
+  </script>
+</body>
+</html>

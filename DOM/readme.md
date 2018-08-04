@@ -73,34 +73,37 @@ someNode.hasChildNodes()
 <br><br>
 
 ## Manipulating Nodes
-#### How to query node
-```javascript
-(function () {
-  // 1. getElementById
-  var $goodList = document.getElementById('goodsList')
-  console.log($goodList)
+### Locate an element
+Quickly find element on document node
+- document.documentElement, document.body
+- document.forms (all the form elements)
+- document.anchors (contain all a html tag with an attribute name on it.)
+<br>
 
-  // 2. querySelector, return the first founded result
-  var $listItemOne = $goodList.querySelector('.list-item')
-  console.log($listItemOne)
+Some dom acess functions
+- document.getElementById
+- document.querySelector
+- document.querySelectorAll
+- document.getElementsByClassName
+- document.getElementsByTagName
+- document.getElementsByName
+<br>
 
-  // 3. querySelectorAll, the return value is a array-like object.
-  var $ListItems = document.querySelectorAll('.list-item')
-  console.log($ListItems.length)
+Get the attributes of a node
+- node.getAttribute
+- node.className
+- node.classList
+- node.id
+- node.name
+- node.value
+<br>
 
-  // 4. getElementsByClassName, the return value is a array-like object.
-  var $itemNames = $goodList.getElementsByClassName('name')
-  console.log($itemNames.item(0).innerHTML)
-
-  // 5. getElementsByTagName, the return value is a array-like object.
-  var $spanNodes = document.getElementsByTagName('span')
-  console.log($spanNodes[0].innerText)
-  
-  // 6. query a node by node relationships
-}) ()
-```
-
-
+### manipulating nodes
+- appendChild
+- replaceChild
+- insertBefore
+- insertAfter
+- cloneNode
 
 
 

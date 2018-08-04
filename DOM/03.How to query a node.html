@@ -7,7 +7,7 @@
 </head>
 <body>
   <div class="container">
-    <div class="goods-box">
+    <div class="goods-wrapper">
       <ul class="goods-list" id="goodsList">
         <!-- I'm a comment -->
         <li class="list-item"><span class="name">#.1.good</span></li>
@@ -15,9 +15,26 @@
         <li class="list-item"><span class="name">#.3.good</span></li>
       </ul>
     </div>
+    <div class="form-wrapper">
+      <form action="" name="shopInfo">
+        <input type="text" name="address" placeholder="Please type in address">
+      </form>
+    </div>
+    <footer>
+      <h3 class="tit">contact us</h3>
+      <a href="http://www.google.com" target="_blank" name="aboutUs"> about us</a>
+    </footer>
   </div>
   <script>
     (function () {
+      // 0. some quick finding way for a element
+      var $html = document.documentElement
+      var $body = document.body
+      var $forms = document.forms
+      // contain all a html tag with an attribute name on it.
+      var $anchors = document.anchors
+      console.log($html, $body, $forms, $anchors)
+
       // 1. getElementById
       var $goodList = document.getElementById('goodsList')
       console.log($goodList)
@@ -38,7 +55,14 @@
       var $spanNodes = document.getElementsByTagName('span')
       console.log($spanNodes[0].innerText)
       
-      // 6. query a node by node relationships
+      // 6. getElementsByName()
+      var $a = document.getElementsByName('aboutUs')
+      console.log($a)
+
+      // 7. query a node by node relationships
+
+      // 8 getArributes
+      console.log($goodList.getAttribute('class'))
     }) ()
   </script>
 </body>
