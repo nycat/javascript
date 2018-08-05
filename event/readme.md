@@ -208,4 +208,19 @@ For dblclick event, trigger order is mousedown, mouseup, click, mousedown, mouse
 - mouseout
 - mouseenter
 - mouseleave
-For mouseover and mouseout, they are event group,meanwhile; for mouseenter and mouseleave, the are another event group.
+For mouseover and mouseout, they are event group,meanwhile; for mouseenter and mouseleave, the are another event group.<br>
+
+#### pageX, pageY, clientX, clientY
+```javascript
+let { pageX, pageY, clientX, clientY } = e
+let scrollTop = 0
+
+if (document.compatMode === 'CSS1Compat') {
+  scrollTop = document.documentElement.scrollTop
+} else {
+  scrollTop = document.body.scrollTop
+}
+console.log((pageY === (clientY + scrollTop)))
+```
+For example, please click <a href='./11.2.pageX, pageY, clientX, clientY.html'>11.2.pageX, pageY, clientX, clientY.html</a>
+
