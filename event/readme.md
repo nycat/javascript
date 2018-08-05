@@ -143,8 +143,8 @@ Mutation events are fired when a change occurs to the underlying DOM structure.
 To determine if a browser
 supports HTML events according to DOM Level 2 Events, you can use the following code:
 ```javascript
-var supportDom2 = document.implementation.hasFeature(“HTMLEvents”, “2.0”)
-var supportDom3 = document.implementation.hasFeature(“UIEvent”, “3.0”)
+var supportDom2 = document.implementation.hasFeature('HTMLEvents', '2.0')
+var supportDom3 = document.implementation.hasFeature('UIEvent', '3.0')
 ```
 
 #### load event
@@ -192,4 +192,20 @@ all browsers except Safari (which still tracks scroll position on <body>). For e
 
 <a href="./09.scroll event.html">scroll event</a> <br>
 
+#### Mouse Event
+Mouse events are the most commonly used group of events on the Web, because the mouse is the
+primary navigation device used. There are nine mouse events defi ned in DOM Level 3 Events. <br>
 
+- mousedown
+- mouseup
+- click
+- dblclick
+For click event, the trigger order is mousedown, mouseup and click. <br>
+
+For dblclick event, trigger order is mousedown, mouseup, click, mousedown, mouseup, click and dblclick. <br>
+
+- mouseover
+- mouseout
+- mouseenter
+- mouseleave
+For mouseover and mouseout, they are a piar and for mouseenter and mouseleave, the are another pair.

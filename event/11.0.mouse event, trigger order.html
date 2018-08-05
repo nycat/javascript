@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>11.0.mouse event basic</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <style> 
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .goods-list .list-item {
+     height: 44px;
+    }
+    .btn {
+      height: 44px;
+      width: 120px;
+      line-height: 44px;
+      text-align: center;
+      border: 1px solid #999;
+      outline: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="goods-box">
+      <ul class="goods-list" id="goodsList">
+        <!-- I'm a comment -->
+        <li class="list-item"><span class="name">#.1.good</span></li>
+        <li class="list-item"><span class="name">#.2.good</span></li>
+        <li class="list-item"><span class="name">#.3.good</span></li>
+      </ul>
+      <button class="btn" id="clickMeBtn">Click me</button>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var $clickMeBtn = document.getElementById('clickMeBtn')
+      function logInfo (e) {
+        let {type} = e
+        console.log(`type: ${type}`)
+      }
+
+      // for click event, the trigger order is mousedown, mouseup and click.
+      $clickMeBtn.addEventListener('mousedown', logInfo, false)
+      $clickMeBtn.addEventListener('mouseup', logInfo, false)
+      $clickMeBtn.addEventListener('click', logInfo, false)
+
+      // double click
+      // for dbclick, the the trigger order is mousedown, mouseup, click, mousedown, mouseup, dbclick
+      $clickMeBtn.addEventListener('dblclick', logInfo, false)
+
+      // for dbclick, the the trigger order is mousedown, mouseup, click, mousedown, mouseup, click, dbclick
+
+
+    }) ()
+  </script>
+</body>
+</html>
