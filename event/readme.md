@@ -105,7 +105,12 @@ We can acess Event object from chrome's console panel. By **Event.prototype**, w
 <br>
 
 - eventPhase, event handler excuted phase (1:capturing phase, 2: at targe, 3: bubbling phase)
-- target, the element which triggers the event
+- target, srcElement the element which triggers the event
+There is no srcElement for firefox browser while there is no target for IE browser. A compatible solution is 
+```javascript
+let {target, srcElement} = e
+let tarEle = target || target
+```
 - currentTarget, current target. It points to its current event handler's 
 - type, event type
 

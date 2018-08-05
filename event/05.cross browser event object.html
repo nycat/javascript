@@ -38,6 +38,30 @@
           } else {
             el['on' + evtType] = null
           }
+        },
+        getEvent: function(event){
+          //  for IE browser bellow IE9, I guess.
+          return event ? event : window.event;
+        },
+        getTarget: function(event) {
+          // compatible for firefox and IE, I guess is IE8 and previous version.
+          return event.target || event.srcElement;
+        },
+        preventDefault: function(event){
+          // compatible solution for IE, I guess is IE8 and previous version.
+          if (event.preventDefault){
+          event.preventDefault();
+          } else {
+          event.returnValue = false;
+          }
+        },
+        stopPropagation: function(event){
+          // compatible solution for IE, I guess is IE8 and previous version.
+          if (event.stopPropagation){
+          event.stopPropagation();
+          } else {
+          event.cancelBubble = true;
+          }
         }
       }
 
