@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>04.event object</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+  <div class="container">
+    <div class="goods-box">
+      <ul class="goods-list" id="goodsList">
+        <!-- I'm a comment -->
+        <li class="list-item"><span class="name">#.1.good</span></li>
+        <li class="list-item"><span class="name">#.2.good</span></li>
+        <li class="list-item"><span class="name">#.3.good</span></li>
+      </ul>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var eventUtil = {
+        bindEventHandler: function (el, evtType, handler, phase) {
+          if (el.addEventListener) {
+            el.addEventListener(evtType, handler, phase)
+          } else if (el.attachEvent) {
+            // bubble stage only
+            el.attachEvent(evtType, handler.bind(el))
+          } else {
+            el['on' + evtType] = handler
+          }
+        },
+        removeEventHandler: function (el, evtType, handler, phase) {
+          if (el.removeEventListener) {
+            el.removeEventListener(evtType, handler, phase)
+          } else if (el.detachEvent) {
+            // bubble stage only
+            el.detachEvent(evtType, handler.bind(el))
+          } else {
+            el['on' + evtType] = null
+          }
+        }
+      }
+
+
+      var $goodsList = document.getElementById('goodsList')
+      var logInfo = function (e) {
+        // eventPhase, type, target, currentTarget
+        let {eventPhase, type, target, currentTarget} = e
+        console.log(eventPhase, type, target, currentTarget)
+
+        // prevent default actions
+        e.preventDefault()
+
+        // stop bubbling
+        // e.stopPropagation()
+      }
+
+
+      // bind on bubbling stage
+      eventUtil.bindEventHandler($goodsList, 'click', logInfo, false)
+
+      // bind hanlder on capturing stage
+      eventUtil.bindEventHandler($goodsList, 'click', logInfo, true)
+
+      // bind handler on target stage
+      $goodsList.onclick = function (e) {
+        console.log('bind click by onclick')
+        // The eventPhase is 3, there might be some error with chrome. It should be 2
+        logInfo(e)
+      }
+    }) ()
+  </script>
+</body>
+</html>
