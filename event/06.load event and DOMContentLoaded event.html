@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>06.load event</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+  <div class="container">
+    <div class="goods-box">
+      <ul class="goods-list" id="goodsList">
+        <!-- I'm a comment -->
+        <li class="list-item"><span class="name">#.1.good</span></li>
+        <li class="list-item"><span class="name">#.2.good</span></li>
+        <li class="list-item"><span class="name">#.3.good</span></li>
+      </ul>
+      <div class="pic-box"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+
+      // 1. load event for window
+      window.addEventListener('load', function (e) {
+        // window.onload excutes when all the resource are loaded
+        console.log(this, e.type, e.target)
+      }, true)
+
+      // The DOMContentLoaded event is fired when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading.
+      
+      window.addEventListener('DOMContentLoaded', function (e) {
+        // window.onload excutes when all the resource are loaded
+        console.log(this, e.type, e.target)
+      }, true)
+
+      var $pixBox = document.getElementsByClassName('pic-box')[0]
+      lazyLoadImg('https://gjusp.alicdn.com/img/153266276717926.jpg?x-oss-process=image/resize,w_320,h_110/quality,q_90/format,webp', $pixBox)
+
+      loadCssFile('./css/example.css')
+
+      loadScript('./js/load.example.js')
+
+
+      // 2. load event for img
+      function lazyLoadImg (src, container) {
+        var oImg = new Image()
+        // bind event before set src for oImg
+        oImg.onload = function () {
+          container.appendChild(this)
+        }
+        oImg.onerror = function () {
+          container.innerHTML = '<span>load img ' + src +' failed!</span>'
+        }
+
+        oImg.src = src
+      }
+
+      // 3. load css file
+      function loadCssFile (src) {
+        var $head = document.head || document.getElementsByTagName('head')[0]
+        var $oLink = document.createElement('link')
+
+        $oLink.rel = 'stylesheet'
+        $oLink.type = 'text/css'
+        $oLink.href = src
+
+        $oLink.onload = function () {
+          console.log('load'+ src + ' successfully!')
+        }
+        $oLink.onerror = function () {
+          new Error('load' + src + 'failed!')
+        }
+
+        $head.appendChild($oLink)
+      }
+
+      function loadScript (src) {
+        var $oHead = document.head || document.getElementsByTagName('head')[0]
+        var $oScript = document.createElement('script')
+
+        $oScript.type = 'text/javascript'
+        $oScript.src = src
+
+        // excuted when the script are loaded
+        $oScript.onload = function () {
+          console.log('load '+ src + ' successfully!')
+        }
+        $oScript.onerror = function () {
+          new Error('load ' + src + ' failed!')
+        }
+
+        $oHead.appendChild($oScript)
+      }
+
+    }) ()
+  </script>
+</body>
+</html>

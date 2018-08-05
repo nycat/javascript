@@ -114,4 +114,54 @@ let tarEle = target || target
 - currentTarget, current target. It points to its current event handler's 
 - type, event type
 
+<br><br>
+
+
+## Event Types
+There are numerous categories of events that can occur in a web browser. As mentioned previously,
+the type of event being fired determines the information that is available about the event. DOM
+Level 3 Events specifi es the following event groups:
+- User interface (UI) events are general browser events that may have some interaction with the BOM.
+- Focus events are fired when an element gains or loses focus.
+- Mouse events are fired when the mouse is used to perform an action on the page.
+- Wheel events are fired when a mouse wheel (or similar device) is used.
+- Text events are fired when text is input into the document.
+- Keyboard events are fired when the keyboard is used to perform an action on the page.
+- Composition events are fired when inputting characters for an Input Method Editor (IME).
+Mutation events are fired when a change occurs to the underlying DOM structure.
+
+
+### UI Events
+- load
+- abort
+- error
+- select
+- resize
+- scroll
+<br>
+
+To determine if a browser
+supports HTML events according to DOM Level 2 Events, you can use the following code:
+```javascript
+var supportDom2 = document.implementation.hasFeature(“HTMLEvents”, “2.0”)
+var supportDom3 = document.implementation.hasFeature(“UIEvent”, “3.0”)
+```
+
+#### load event
+- for window, load event fires at when all the document resource are loaded
+- for javascript/css/img tag, load event fires at when the resource are loaded
+<br>
+
+How to load script/css/img dianomically, please check <a href="./06.load event and DOMContentLoaded event.html">load css/js/img</a>. <br>
+
+After all the resources loaded, the load event for window can be fired automatically.<br>
+
+#### DOMContentLoaded
+The **DOMContentLoaded** event is fired when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading.<br>
+
+DOMContentLoaded is fired before load event. <br>
+
+
+
+
 
