@@ -68,11 +68,15 @@ the time it was first accessed.<br>
 - nextElementSibling, previousElementSibling
 - firstChild, lastChild
 - firstElementChild, lastElementChild
+- children (only contains element child)
 - Detect a node has child node or not
 ```javascript
 someNode.hasChildNodes()
 ```
 - contains
+```javascript
+document.contains(document.body)
+```
 <br><br>
 
 ## Manipulating Nodes
