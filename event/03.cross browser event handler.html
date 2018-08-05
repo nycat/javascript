@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>02.dom2 event handler</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+  <div class="container">
+    <div class="goods-box">
+      <ul class="goods-list" id="goodsList">
+        <!-- I'm a comment -->
+        <li class="list-item"><span class="name">#.1.good</span></li>
+        <li class="list-item"><span class="name">#.2.good</span></li>
+        <li class="list-item"><span class="name">#.3.good</span></li>
+      </ul>
+      <button class="btn">remove handler for goodsList</button>
+    </div>
+  </div>
+  <script>
+    (function () {
+     var eventUtil = {
+      bindEventHandler: function (el, evtType, handler, phase) {
+        if (el.addEventListener) {
+          el.addEventListener(evtType, handler, phase)
+        } else if (el.attachEvent) {
+          // bubble stage only
+          el.attachEvent(evtType, handler.bind(el))
+        } else {
+          el['on' + evtType] = handler
+        }
+      },
+      removeEventHandler: function (el, evtType, handler, phase) {
+        if (el.removeEventListener) {
+          el.removeEventListener(evtType, handler, phase)
+        } else if (el.detachEvent) {
+          // bubble stage only
+          el.detachEvent(evtType, handler.bind(el))
+        } else {
+          el['on' + evtType] = null
+        }
+      }
+     }
+
+     var $goodsList = document.getElementById('goodsList')
+     var logInfo = function (e) {
+      // this points to event triggerd element
+       console.log(this)
+       console.log(e)
+     }
+     eventUtil.bindEventHandler($goodsList, 'click', logInfo, false)
+
+     var $btn = document.getElementsByClassName('btn')[0]
+
+     $btn.onclick = function () {
+      eventUtil.removeEventHandler($goodsList, 'click', logInfo, false)
+     }
+    }) ()
+  </script>
+</body>
+</html>
