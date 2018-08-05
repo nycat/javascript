@@ -178,8 +178,18 @@ function ready (callback) {
     })
   }
 }
-``` 
+```
+<br>
 
+#### resize event
+<a href="./08.resize event.html">resize event</a> <br>
 
+#### scroll event
+Even though the scroll event occurs on the window, it actually refers to changes in the appropriate
+page-level element. In quirks mode, the changes are observable using the scrollLeft and
+scrollTop of the <body> element; in standards mode, the changes occur on the <html> element in
+all browsers except Safari (which still tracks scroll position on <body>). For example:<br>
+
+<a href="./09.scroll event.html">scroll event</a> <br>
 
 

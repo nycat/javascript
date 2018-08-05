@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>09. scroll event</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <style> 
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .goods-list .list-item {
+      min-height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="goods-box">
+      <ul class="goods-list" id="goodsList">
+        <!-- I'm a comment -->
+        <li class="list-item"><span class="name">#.1.good</span></li>
+        <li class="list-item"><span class="name">#.2.good</span></li>
+        <li class="list-item"><span class="name">#.3.good</span></li>
+      </ul>
+    </div>
+  </div>
+  <script>
+    (function () {
+      /* Even though the scroll event occurs on the window, it actually refers to changes in the appropriate
+  page-level element. In quirks mode, the changes are observable using the scrollLeft and
+  scrollTop of the <body> element; in standards mode, the changes occur on the <html> element in
+  all browsers except Safari (which still tracks scroll position on <body>). */
+      // reference: https://www.cnblogs.com/fullhouse/archive/2012/01/17/2324706.html
+
+      window.addEventListener('scroll', function (e) {
+        // standard compatible model is open
+        if (document.compatMode == 'CSS1Compat'){
+          console.log(document.documentElement.scrollTop)
+        } else {
+          // standard compatible model is closed
+          console.log(document.body.scrollTop)
+        }
+      }, false)
+    }) ()
+  </script>
+</body>
+</html>
