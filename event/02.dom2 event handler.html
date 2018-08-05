@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>02.dom2 event handler</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+  <div class="container">
+    <div class="goods-box">
+      <ul class="goods-list" id="goodsList">
+        <!-- I'm a comment -->
+        <li class="list-item"><span class="name">#.1.good</span></li>
+        <li class="list-item"><span class="name">#.2.good</span></li>
+        <li class="list-item"><span class="name">#.3.good</span></li>
+      </ul>
+      <button class="btn">remove handler for goodsList</button>
+    </div>
+  </div>
+  <script>
+    (function () {
+     var $goodsList = document.getElementById('goodsList')
+     var logInfo = function (e) {
+      console.log(this.innerText)
+      console.log(e)
+     }
+
+     /*
+     element.addEventListener(type: DOMString, callback: EventListener, capture?: boolean)
+      capture: true, event handler will excute at capture phase
+      capture: false, event handler will exture at bubble phase
+    */
+      
+      $goodsList.addEventListener('click', logInfo, false)
+
+      // removeEventListener, in order to remove a handler of a element, all the paramter have to consistent with event binding params
+      document.getElementsByTagName('btn')[0].onclick = function () {
+        $goodsList.removeEventListener('click', logInfo, false)
+      }
+    }) ()
+  </script>
+</body>
+</html>
