@@ -161,6 +161,24 @@ The **DOMContentLoaded** event is fired when the initial HTML document has been 
 
 DOMContentLoaded is fired before load event. <br>
 
+How to realize a **$(document).ready** function?  Here is a basic solution.
+```javascript
+function ready (callback) {
+  // in case the document is already rendered
+  if (document.readyState !== 'loading') {
+    return callback()
+  }
+  else if (document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', callback, true)
+  }
+  else {
+    // IE <= 8
+    document.attachEvent('onreadystatechange', function(){
+      if (document.readyState=='complete') callback()
+    })
+  }
+}
+``` 
 
 
 
