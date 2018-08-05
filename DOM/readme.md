@@ -65,11 +65,14 @@ It is often said that a NodeList is a living, breathing object rather than a sna
 the time it was first accessed.<br>
 - **parentNode**
 - nextSibling, previousSibling
+- nextElementSibling, previousElementSibling
 - firstChild, lastChild
+- firstElementChild, lastElementChild
 - Detect a node has child node or not
 ```javascript
 someNode.hasChildNodes()
 ```
+- contains
 <br><br>
 
 ## Manipulating Nodes
@@ -105,6 +108,7 @@ Get the attributes of a node
 - node.id
 - node.name
 - node.value
+- node.innerText, node.innerHTML, node.outerText
 <br>
 
 ### manipulating nodes

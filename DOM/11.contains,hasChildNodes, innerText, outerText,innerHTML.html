@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>11.contains hasChildNodes</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+  <div class="container">
+    <div class="goods-box">
+      <ul class="goods-list first-one" id="goodsList">
+        <!-- I'm a comment -->
+        <li class="list-item item1"><span class="name">#.1.good</span></li>
+        <li class="list-item item2"><span class="name">#.2.good</span></li>
+        <li class="list-item item3"><span class="name">#.3.good</span></li>
+      </ul>
+    </div>
+  </div>
+  <script>
+   (function () {
+    var $goodsList = document.getElementById('goodsList')
+    console.log(`$goodsList has child nodes: ${$goodsList.hasChildNodes()}`)
+
+    var $firstGoodsName = document.querySelector('.name')
+    console.log(`$goodsList.contains($firstGoodsName): ${$goodsList.contains($firstGoodsName)}`)
+
+    console.log(`$firstGoodsName.innerText \n ${$firstGoodsName.innerText}`)
+    console.log(`$goodsList.innerHTML \n ${$goodsList.innerHTML}`)
+    console.log(`$goodsList.ouerText \n ${$goodsList.outerText}`)
+    console.log(`document.body.innerText \n ${document.body.innerText}`)
+   }) ()
+  </script>
+</body>
+</html>
