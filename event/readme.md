@@ -32,25 +32,30 @@ document.body.onclick = null
 <br>
 
 #### DOM Level 2 Event Handlers
-DOM Level 2 Events define two methods to deal with the assignment and removal of event handlers: **addEventListener()** and **removeEventListener()**. <br>
-
+DOM Level 2 Events define two methods to deal with the assignment and removal of event handlers: **addEventListener()** and **removeEventListener()**. **(addEventListener and removeEventListener are compatible with IE9 and later)** <br>
 
 ```javascript
 var sayHi = function () {
   console.log('hi')
 }
-/*
-element.addEventListener(type: DOMString, callback: EventListener, capture?: boolean)
-capture: true, event handler will excute at capture phase
-capture: false, event handler will exture at bubble phase
-*/
+
 document.addEventListener('click', sayHi, false)
 document.removeEventListener('click', sayHi, false)
 ```
 
 <br>
-Compared with DOM0 Level event mechanism, DOM2 Level event mechanism enables mutitiple handlers binding. It's a smilarity to ***subscriber-publisher*** pattern. Here is a simplified example of publisher and publisher code.
+For IE8 and previous version, ** attachEvent ** and ** detachEvent ** take over the same functionality as ** addEventListner ** and ** removeEventListener ** with the same params.
+The differences is ** attachEvent ** and ** detachEvent ** only support event bubbling phase.
+```javascript
+var sayHi = function () {
+  console.log('hi')
+}
+document.body.attachEvent('click', sayHi)
+document.body.detachEvent('click', sayHi)
+```
+<br>
 
+Compared with DOM0 Level event mechanism, DOM2 Level event mechanism enables mutitiple handlers binding. It's a smilarity to *** subscriber publisher *** pattern. Here is a simplified example of publisher and publisher code.
 ```javascript
 const event  = {
   events: {},
