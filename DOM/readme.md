@@ -86,12 +86,14 @@ document.contains(document.body)
 - document.createTextNode
 - document.createComment
 - document.createAttribute
-
 <br>
+
 ### Locate an element
 Quickly find element on document node
-- document.head **(chrome and safari5+)**
+
+- document.head
 ```javascript
+// chrome and safari5+ support document.head
 var headEle = document.head || document.getElementsByTagName('head')[0]
 ```
 - document.documentElement, document.body
