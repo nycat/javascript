@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>09.classList</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+  <div class="container">
+    <div class="goods-box">
+      <ul class="goods-list first-one" id="goodsList">
+        <!-- I'm a comment -->
+        <li class="list-item item1"><span class="name">#.1.good</span></li>
+        <li class="list-item item2"><span class="name">#.2.good</span></li>
+        <li class="list-item item3"><span class="name">#.3.good</span></li>
+      </ul>
+    </div>
+  </div>
+  <script>
+   (function () {
+    var $goodsList = document.getElementById('goodsList')
+    var className = $goodsList.className
+    console.log(className)
+
+    var classList = $goodsList.classList
+    console.log(Array.prototype.slice.call(classList, 0).join(' '))
+
+    classList.contains('goods-list')
+
+    classList.add('hello-world')
+    console.log($goodsList.className)
+
+    classList.remove('hello-world')
+    console.log($goodsList.className)
+
+    classList.toggle('hello-world')
+    console.log($goodsList.className)
+
+   }) ()
+  </script>
+</body>
+</html>

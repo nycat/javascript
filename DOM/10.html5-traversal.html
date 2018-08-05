@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>08.getElementsByClassName</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+  <div class="container">
+    <div class="goods-box">
+      <ul class="goods-list" id="goodsList">
+        <!-- I'm a comment -->
+        <li class="list-item item1"><span class="name">#.1.good</span></li>
+        <li class="list-item item2"><span class="name">#.2.good</span></li>
+        <li class="list-item item3"><span class="name">#.3.good</span></li>
+      </ul>
+    </div>
+  </div>
+  <script>
+   (function () {
+     /* For blank space, IE9 and before version don't return text node while other browers and versions do.
+     In oder to be consitent with dom standard, some new properties are added. */
+
+     // 1. childElementCount
+     var $goodsList = document.getElementById('goodsList')
+     console.log(`goodsList.childElementCount:${goodsList.childElementCount}`)
+
+     // 2. firstElementChild
+     console.log(`goodsList.firstElementChild:${$goodsList.firstElementChild}`)
+
+     // 3.lastElementChild
+     console.log(`goodsList.lastElementChild:${$goodsList.lastElementChild}`)
+
+     // 4. previousElementSibling
+     console.log(`goodsList.previousElementSibling:${$goodsList.previousElementSibling}`)
+
+     // 5. nextElementSibling
+      console.log(`goodsList.nextElementSibling:${$goodsList.nextElementSibling}`)
+
+    // children element only collections, it's an instanceof HTMLCollection
+    console.log(`$goodsList.children:${[].slice.call($goodsList.children, 0)}`)
+    console.log([].slice.call($goodsList.children, 0))
+
+   }) ()
+  </script>
+</body>
+</html>
