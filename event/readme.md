@@ -223,4 +223,16 @@ if (document.compatMode === 'CSS1Compat') {
 console.log((pageY === (clientY + scrollTop)))
 ```
 For example, please click <a href='./11.2.pageX, pageY, clientX, clientY.html'>11.2.pageX, pageY, clientX, clientY.html</a>
+<br>
 
+
+#### offsetX, offsetY
+```javascript
+var logInfo = function (e) {
+  let {offsetX, offsetY} = e
+  // offsetX is the x-coordinate of the cursor relative to the boundaries of the target element.
+  // offsetY is the y-coordinate of the cursor relative to the boundaries of the target element.
+  console.log(`offsetX: ${offsetX}, offsetY: ${offsetY}`)
+}
+```
+An example is here: <a href="./11.3.offsetX, offsetY.html">11.3.offsetX, offsetY.html</a><br>
