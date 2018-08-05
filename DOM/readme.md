@@ -90,10 +90,14 @@ document.contains(document.body)
 <br>
 ### Locate an element
 Quickly find element on document node
-- document.head
+- document.head **(chrome and safari5+)**
+```javascript
+var headEle = document.head || document.getElementsByTagName('head')[0]
+```
 - document.documentElement, document.body
 - document.forms (all the form elements)
 - document.anchors (contain all a html tag with an attribute name on it.)
+- document.links
 <br>
 
 Some dom access functions
