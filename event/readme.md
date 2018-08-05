@@ -208,4 +208,4 @@ For dblclick event, trigger order is mousedown, mouseup, click, mousedown, mouse
 - mouseout
 - mouseenter
 - mouseleave
-For mouseover and mouseout, they are a piar and for mouseenter and mouseleave, the are another pair.
+For mouseover and mouseout, they are event group,meanwhile; for mouseenter and mouseleave, the are another event group.

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>11.0.mouseover, mouseout, mouseenter, mouseleave</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <style> 
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .goods-list .list-item {
+     height: 44px;
+     border:  1px solid #eee;
+    }
+    .btn {
+      height: 44px;
+      width: 120px;
+      line-height: 44px;
+      text-align: center;
+      border: 1px solid #999;
+      outline: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="goods-box">
+      <ul class="goods-list" id="goodsList">
+        <!-- I'm a comment -->
+        <li class="list-item item1"><span class="name">#.1.good</span></li>
+        <li class="list-item item2"><span class="name">#.2.good</span></li>
+        <li class="list-item item3"><span class="name">#.3.good</span></li>
+      </ul>
+      <button class="btn" id="clickMeBtn">Click me</button>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var $goodsList = document.getElementById('goodsList')
+
+      var logInfo = function (e) {
+        var tarEle = e.target || e.srcElement
+        console.log(e.type, tarEle.className)
+      }
+
+      // mouseover, mouseout is an event group
+      $goodsList.addEventListener('mouseover', logInfo, false)
+      $goodsList.addEventListener('mouseout', logInfo, false)
+
+       // mouseenter, mouseleave is an event group
+      $goodsList.addEventListener('mouseenter', logInfo, false)
+      $goodsList.addEventListener('mouseleave', logInfo, false)
+
+      // event trigger order: mouseover, mouseenter, mouseout, mouseleave
+    }) ()
+  </script>
+</body>
+</html>
