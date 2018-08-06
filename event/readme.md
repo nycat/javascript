@@ -272,6 +272,27 @@ Upside down configuration is not set up to date. <br>
 
 For firefox browser, It introduced a similar event called 'MozOrientation' to detect device orientation. <br><br>
 
+## Touch and Gesture event
+
+### Touch event
+W3C standard: <a href="https://dvcs.w3.org/hg/webevents/raw-file/tip/touchevents.html">w3c Touch events standard</a><br>
+
+Touch events are fired when a fi nger is placed on the screen, dragged across the screen, or removed from the screen. The touch events are as follows:
+- touchstart
+Fires when a fi nger touches the screen even if another fi nger is already touching the screen.
+- touchmove
+Fires continuously as a fi nger is moved across the screen. Calling preventDefault() during this event prevents scrolling.
+- touchend
+- touchcancel
+<br>
+
+<a href="./">bind touch events on an element</a>
+
+A touch event is an instance  of **TouchEvent** class. 
+![TouchEvent.prototype](./includes/TouchEvent.prototype.png).
+
+some useful properties for a touch event are:
+- changedTouches
 
 
 
