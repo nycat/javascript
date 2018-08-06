@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>11.4.mousewheel, DOMMouseScroll</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <style> 
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .goods-list .list-item {
+      min-height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="goods-box">
+      <ul class="goods-list" id="goodsList">
+        <!-- I'm a comment -->
+        <li class="list-item"><span class="name">#.1.good</span></li>
+        <li class="list-item"><span class="name">#.2.good</span></li>
+        <li class="list-item"><span class="name">#.3.good</span></li>
+      </ul>
+    </div>
+  </div>
+  <script>
+    (function () {
+      function logInfo (e) {
+        let scrollTop = document.compatMode === 'CSS1Compat' ? document.documentElement.scrollTop : document.body.scrollTop
+        console.log(`scrollTop: ${scrollTop}`)
+        console.log(e.target.className, e.currentTarget, e.wheelDelta)
+        document.title = e.target.className + scrollTop
+      }
+
+      var $goodsList = document.getElementById('goodsList')
+      var mousewheelEvt = navigator.userAgent.indexOf('Firefox') > -1 ? 'DOMMouseScroll' : 'mousewheel'
+      // mousewheel event can be triggered on any element. For IE8 it will propagate to document and for  other browsers, it will propagate to window
+      window.addEventListener(mousewheelEvt, logInfo, false)
+    }) ()
+  </script>
+</body>
+</html>

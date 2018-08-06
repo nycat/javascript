@@ -236,3 +236,22 @@ var logInfo = function (e) {
 }
 ```
 An example is here: <a href="./11.3.offsetX, offsetY.html">11.3.offsetX, offsetY.html</a><br>
+
+
+#### mousewheel, DOMMouseScroll
+For IE8 and previous version, a mousewheel event propagetes to document, while for the latter version of IE and other browsers,  a mousewheel event propagetes to window. <br>
+Firefox supports a similar event called DOMMouseScroll, which fires when the mouse wheel is turned. So the compatible code for mousewheel handler is like:
+```javascript
+function logInfo (e) {
+  let scrollTop = document.compatMode === 'CSS1Compat' ? document.documentElement.scrollTop : document.body.scrollTop
+  console.log(`scrollTop: ${scrollTop}`)
+  console.log(e.target.className, e.currentTarget, e.wheelDelta)
+  document.title = e.target.className + scrollTop
+}
+
+var $goodsList = document.getElementById('goodsList')
+var mousewheelEvt = navigator.userAgent.indexOf('Firefox') > -1 ? 'DOMMouseScroll' : 'mousewheel'
+// mousewheel event can be triggered on any element. For IE8 it will propagate to document and for  other browsers, it will propagate to window
+window.addEventListener(mousewheelEvt, logInfo, false)
+```
+An example can be found at <a href="./11.4.mousewheel, DOMMouseScroll.html">11.4.mousewheel, DOMMouseScroll.html</a><br>
