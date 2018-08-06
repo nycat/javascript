@@ -34,6 +34,7 @@
         if (document.readyState !== 'loading') {
           return callback()
         }
+        // IE9 && IE9+ and other browsers
         else if (document.addEventListener) {
           document.addEventListener('DOMContentLoaded', callback, true)
         }
@@ -48,8 +49,22 @@
       ready(function () {
         var $goodsList = document.getElementById('goodsList')
         console.log($goodsList)
+        /* For element that supports readystatechange event, there is a readyState on it.
+         there are five possible values for readyState: 1. uninitialized, 2.loading, 3. loaded, 4.interactive, 5. complete
+         Even though this seems straightforward, not all objects go through all readystate phases. The
+documentation indicates that objects may completely skip a phase if it doesn’t apply but doesn’t
+indicate which phases apply to which objects.
+        */
+        document.addEventListener('readystatechange', (e) => {
+          console.log(document.readyState)
+        }, false)
       })
     }) ()
   </script>
 </body>
 </html>
+<!-- 
+
+
+
+ -->
