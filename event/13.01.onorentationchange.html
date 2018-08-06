@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>13.01.onorentationchange</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      height: 100%;
+    }
+    body {
+      font-size: 14px;
+    }
+    .btn-box {
+      display: flex;
+      justify-content: space-between;
+    }
+    a {
+      text-decoration: none;
+    }
+    .btn {
+      padding: 10px 20px;
+      border: 1px solid #eee;
+      outline: none;
+      cursor: pointer;
+    }
+    .hashtag {
+      height: 10%;
+      border-top: 1px solid red;
+    }
+  </style>
+</head>
+<body>
+  <div class="btn-box">
+    <a class="btn btn1" href="#id1">go to 1</a>
+    <a class="btn btn2" href="#id2">go to 2</a>
+    <a class="btn btn3" href="#id3">go to 3</a>
+    <a class="btn btn4" href="#id4">go to 4</a>
+  </div>
+  <div class="hashtag" id="id1">I'm hash tag 1</div>
+  <div class="hashtag" id="id2">I'm hash tag 2</div>
+  <div class="hashtag" id="id3">I'm hash tag 3</div>
+  <div class="hashtag" id="id4">I'm hash tag 4</div>
+  <script>
+    (function () {
+      // orientationchange is binded on window
+      window.addEventListener('orientationchange', function (e) {
+        var orientationOptions = {
+          0: 'portrait',
+          90: 'landscape',
+          '-180': 'upside down'
+        }
+        console.dir(e)
+        
+        console.log(e.type, orientationOptions[window.orientation])
+      }, false)
+    }) ()
+  </script>
+</body>
+</html>

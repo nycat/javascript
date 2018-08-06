@@ -260,3 +260,19 @@ An example can be found at <a href="./11.4.mousewheel, DOMMouseScroll.html">11.4
 ## HTML5 event
 - hashchange. An example can be found at <a href="./12.01.html5.hashchange.html">hashchaneg demo</a>
 
+
+## Device event
+#### orientationchange and MozOrientation
+
+Apple created the **orientationchange** event on mobile Safari so that developers could determine
+when the user switched the device from landscape to portrait mode. <br>
+
+**window.orientation** contain one of the three values: 1.  0(portrait), 2. 90(landscape), 3. -180 (upside down).
+Upside down configuration is not set up to date. <br>
+
+For firefox browser, It introduced a similar event called 'MozOrientation' to detect device orientation. <br><br>
+
+
+
+
+
