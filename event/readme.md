@@ -254,4 +254,9 @@ var mousewheelEvt = navigator.userAgent.indexOf('Firefox') > -1 ? 'DOMMouseScrol
 // mousewheel event can be triggered on any element. For IE8 it will propagate to document and for  other browsers, it will propagate to window
 window.addEventListener(mousewheelEvt, logInfo, false)
 ```
-An example can be found at <a href="./11.4.mousewheel, DOMMouseScroll.html">11.4.mousewheel, DOMMouseScroll.html</a><br>
+An example can be found at <a href="./11.4.mousewheel, DOMMouseScroll.html">11.4.mousewheel, DOMMouseScroll.html</a><br><br>
+
+
+## HTML5 event
+- hashchange. An example can be found at <a href="./12.01.html5.hashchange.html">hashchaneg demo</a>
+
