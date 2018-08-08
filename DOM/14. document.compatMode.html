@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>09. scroll event</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+  <div class="container">
+    <div class="goods-box">
+      <ul class="goods-list" id="goodsList">
+        <!-- I'm a comment -->
+        <li class="list-item"><span class="name">#.1.good</span></li>
+        <li class="list-item"><span class="name">#.2.good</span></li>
+        <li class="list-item"><span class="name">#.3.good</span></li>
+      </ul>
+    </div>
+  </div>
+  <script>
+    (function () {
+     // reference: https://www.cnblogs.com/fullhouse/archive/2012/01/17/2324706.html
+    // BackCompat：标准兼容模式关闭。
+    // CSS1Compat：标准兼容模式开启。
+
+    // 当document.compatMode等于BackCompat时，浏览器客户区宽度是document.body.clientWidth；
+    // 当document.compatMode等于CSS1Compat时，浏览器客户区宽度是document.documentElement.clientWidth。
+    }) ()
+  </script>
+</body>
+</html>
