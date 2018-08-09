@@ -142,3 +142,24 @@ are run against the DOM document whenever they are accessed. <br>
 
 Generally speaking, it is best to limit the number of times you interact with a NodeList. Since a query
 is run against the document each time, try to cache frequently used values retrieved from a NodeList.
+<br></br>
+
+# Box model
+## box model for element
+- clientWidth
+- cliengHeight
+- offsetWidth
+- offsetHeight
+- clientTop
+- clientBottom
+- offsetHeight
+- offsetWidth
+- scrollWidth
+- scrollHeight
+For explaination, please click  <a href="./15.box-model.html">15.box-model.html</a><br>
+
+## screen box model
+```javascript
+var screenWidth = document.documentElement.clientWidth || document.body.clientWidth
+var screenHeight = document.documentElement.clientHeight || document.body.clientHeight
+```

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <style>
+    * {
+      margin:  0;
+      padding: 0;
+    }
+    .box {
+      background-color: #999;
+      border:  10px solid #333;
+      margin: 20px;
+      width: 100px;
+      height: 100px;
+      padding: 20px;
+      color: #fff;
+    }
+    .container {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box demo1" id="box1">
+      <div class="ctn">
+      border:  10px solid green;
+      margin: 20px;
+      width: 100px;
+      height: 100px;
+      padding: 20px;</div>
+    </div>
+    <div class="box demo2" id="box2">
+      border:  10px solid green;
+      margin: 20px;
+      width: 100px;
+      height: 100px;
+      padding: 20px;
+    </div>
+  </div>
+  <script>
+    (function () {
+      var oBox = document.getElementById('box1')
+      // 1. clientWidth/clientHeight height/width + (padding-left/right + padding-top/padding-bottom)
+      console.log(`oBox.clientWidth:${oBox.clientWidth}, oBox.clientHeight:${oBox.clientHeight}`)
+
+      // 2. clientTop clientLeft: border-top-width, botder-left-width. oBox.clientBottom, oBox.clientRight are undefined.
+      console.log('oBox.clientTop, oBox.clientLeft, oBox.clientBottom, oBox.clientRight:')
+      console.log( oBox.clientTop, oBox.clientLeft, oBox.clientBottom, oBox.clientRight)
+
+      // 3. offsetHeight/offsetWidth: clientHeight + border-top/bottom-width, clientWidth + border-left/right-width
+      console.log('oBox.offsetWidth, oBox.offsetHeight')
+      console.log(oBox.offsetWidth, oBox.offsetHeight)
+
+      // 4.scrollWidth/scrollHeight
+      // 1). without content overflow, scrollHeight equal to contentHeight + padding-bottom-width approximately
+      // 2). with content overflow, scrollWidth equal to contentWidth + padding-right-width approximately
+
+      console.log(oBox.scrollWidth, oBox.scrollHeight)
+
+    }) ()
+  </script>
+</body>
+</html>
