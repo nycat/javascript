@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>cssText</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <style>
+    * {
+      margin:  0;
+      padding: 0;
+    }
+    .box {
+      background-color: #999;
+      border:  10px solid #333;
+      margin: 20px;
+      width: 100px;
+      height: 100px;
+      padding: 20px;
+      color: #fff;
+    }
+    .container {
+    }
+    .cnt {
+      font-size:  14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box demo1" id="box1">
+      <div class="ctn">
+      border:  10px solid green;
+      margin: 20px;
+      width: 100px;
+      height: 100px;
+      padding: 20px;</div>
+    </div>
+    <div id="cnt"></div>
+  </div>
+  <script>
+    (function () {
+      var $oBox = document.getElementById('box1')
+      $oBox.style.cssText = `
+      border:  10px solid #333;
+      margin: 20px;
+      width: 100px;
+      height: 100px;
+      padding: 20px;
+      color: #fff;
+      background-color: green;`
+    }) ()
+  </script>
+</body>
+</html>

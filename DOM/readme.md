@@ -206,8 +206,19 @@ var clientReact = $oBox.getBoundingClientRect()
 The clientReact includes eight properties that are bottom, height, left, right, top, width, x, y.
 Width is the box-model width of $oBox, height is the box-model height of $oBox.
 
-
-
+- cssText
+cssText is a way to set the CSS style, but it is a process of destroying the original style and rebuilding, this destruction and reconstruction will increase the overhead of the browser.
+```javascript
+var $oBox = document.getElementById('box1')
+$oBox.style.cssText = `
+  border:  10px solid #333;
+  margin: 20px;
+  width: 100px;
+  height: 100px;
+  padding: 20px;
+  color: #fff;
+  background-color: green;`
+```
 
 
 
