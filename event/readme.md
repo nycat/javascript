@@ -293,7 +293,14 @@ A touch event is an instance  of **TouchEvent** class.
 
 some useful properties for a touch event are:
 - changedTouches
+- touches
 
+
+
+## Event binding and performance
+- use delegate
+- remove event handler at right time.
+- avoid frequently query dom, better to put a reference
 
 
 
