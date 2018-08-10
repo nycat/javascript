@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>getComputedStyle, style</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <style>
+    * {
+      margin:  0;
+      padding: 0;
+    }
+    .box {
+      background-color: #999;
+      border:  10px solid #333;
+      margin: 20px;
+      width: 100px;
+      height: 100px;
+      padding: 20px;
+      color: #fff;
+    }
+    .container {
+    }
+    .cnt {
+      font-size:  14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div><a href="https://www.cnblogs.com/coco1s/p/5210667.html"></a>getComputedStyle and its usage</div>
+    <div class="box demo1" id="box1">
+      <div class="ctn">
+      border:  10px solid green;
+      margin: 20px;
+      width: 100px;
+      height: 100px;
+      padding: 20px;</div>
+    </div>
+    <div>
+      <h2 class="tit">box element's style</h2>
+     <div class="cnt cnt2" id="cnt2"></div>
+   </div>
+   <div>
+      <h2 class="tit">box element's computedStyle</h2>
+     <div class="cnt" id="cnt"></div>
+   </div>
+  </div>
+  <script>
+    (function () {
+      var $oBox = document.getElementById('box1')
+      var oBoxStyle = getComputedStyle($oBox)
+      var style = $oBox.style
+
+      var $oCnt = document.getElementById('cnt')
+      $oCnt.innerHTML = JSON.stringify(oBoxStyle)
+
+      var $oCnt2 = document.getElementById('cnt2')
+      console.log($oBox.style)
+
+      console.log(`oBox's with: ${oBoxStyle.getPropertyValue('width')}`)
+      console.log(`oBox's padding: ${oBoxStyle.getPropertyValue('padding')}`)
+
+
+    }) ()
+  </script>
+</body>
+</html>

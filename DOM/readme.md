@@ -163,3 +163,48 @@ For explaination, please click  <a href="./15.box-model.html">15.box-model.html<
 var screenWidth = document.documentElement.clientWidth || document.body.clientWidth
 var screenHeight = document.documentElement.clientHeight || document.body.clientHeight
 ```
+<br>
+
+### getComputedStyle, defaultView.getComputedStyle
+compatible for IE9 and above.<br>
+
+- getComputedStyle's function is similar to defaultView.getComputedStyle
+```javascript
+  window.getComputedStyle(el)
+  window.defaultView.getComputedStyle
+```
+
+The difference for *defaultView.getComputedStyle* and *getComputedStyle* is, for firefox3.6, using getComputedStyle reports errors. We can use **getComputedStyle** safely as firefox3.6 is too old. <br>
+
+The return value for getComputedStyle is an array:
+[!getComputedStyle's return value is an array](./includes/04.getComputedStyle.png)
+
+- getPropertyValue
+```javascript
+var $oBox = document.getElementById('box1')
+var oBoxStyle = getComputedStyle($oBox)
+var style = $oBox.style
+
+var $oCnt = document.getElementById('cnt')
+$oCnt.innerHTML = JSON.stringify(oBoxStyle)
+
+var $oCnt2 = document.getElementById('cnt2')
+console.log($oBox.style)
+
+console.log(`oBox's with: ${oBoxStyle.getPropertyValue('width')}`)
+console.log(`oBox's padding: ${oBoxStyle.getPropertyValue('padding')}`)
+```
+example: <a href="./16.getComputedStyle.html">getPropertyValue</a> <br>
+reference: https://www.cnblogs.com/coco1s/p/5210667.html 
+<br>
+
+
+
+
+
+
+
+
+
+
+
