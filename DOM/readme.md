@@ -35,7 +35,7 @@ console.log(`document.nodeType: ${document.nodeType}`)
 <br>
 
 #### some most usuaslly used node types
-- Node.ELEMENT_NODE(1) (html node)
+- Node.ELEMENT_NODE(1) (element node)
 - Node.ATTRIBUTE_NODE (2) (attribute node)
 - Node.TEXT_NODE (3)  (text node)
 - Node.COMMENT_NODE (8) (comment node)
