@@ -165,10 +165,10 @@ var screenHeight = document.documentElement.clientHeight || document.body.client
 ```
 <br>
 
-### getComputedStyle, defaultView.getComputedStyle
+### getComputedStyle,  getBoundingClientRect
 compatible for IE9 and above.<br>
 
-- getComputedStyle's function is similar to defaultView.getComputedStyle
+- defaultView.getComputedStyle's function is similar getComputedStyle
 ```javascript
   window.getComputedStyle(el)
   window.defaultView.getComputedStyle
@@ -197,6 +197,16 @@ console.log(`oBox's padding: ${oBoxStyle.getPropertyValue('padding')}`)
 example: <a href="./16.getComputedStyle.html">getPropertyValue</a> <br>
 reference: https://www.cnblogs.com/coco1s/p/5210667.html 
 <br>
+
+- getBoundingClientRect
+```javascript
+var $oBox = document.getElementById('box1')
+var clientReact = $oBox.getBoundingClientRect()
+```
+The clientReact includes eight properties that are bottom, height, left, right, top, width, x, y.
+Width is the box-model width of $oBox, height is the box-model height of $oBox.
+
+
 
 
 
