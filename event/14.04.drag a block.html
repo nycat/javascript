@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>14.02.drag a block</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <style> 
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #box {
+      position: absolute;
+      left: 50px; top: 50px;
+      width: 20px;
+      height: 20px;
+      background: red;
+    }
+    #box.highlight { 
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="box"></div>
+  </div>
+  <script>
+    (function () {
+      function bindEvent (ele, type, fn, capture) {
+        ele.addEventListener(type, fn, capture)
+      }
+
+      function getTouchPos (e) {
+        var oTouch = e.changedTouches[0]
+        var pageX = oTouch.pageX
+        var pageY = oTouch.pageY
+        return {
+          x: pageX,
+          y: pageY
+        }
+      }
+
+      var getRect = function (el) {
+        return el.getBoundingClientRect(el)
+      }
+
+      var onTouchStart = function (e) {
+        this.startPos = getTouchPos(e)
+        this.startClientRect = getRect(this)
+
+        this.addEventListener('touchmove', onToucMove, false)
+        this.addEventListener('touchend', onTouchEnd, false)
+        this.classList.add('highlight')
+      }
+
+      var onToucMove = function (e) {
+        var pos = getTouchPos(e)
+        var xDis = pos.x - this.startPos.x
+        var yDis = pos.y - this.startPos.y 
+        
+        var newPosLeft = this.startClientRect.left + xDis + 'px'
+        var newPosTop = this.startClientRect.top + yDis + 'px'
+
+        this.style.cssText = 'left:'+ newPosLeft + ';top:'+ newPosTop+';'
+      }
+
+      var onTouchEnd = function (e) {
+        this.startPos = null
+        this.startClientRect = null
+
+        // this.removeEventListener('touchmove', onToucMove, false)
+        // this.removeEventListener('touchend', onTouchEnd, false)
+        this.classList.remove('highlight')
+      }
+
+      var $box = document.getElementById('box')
+      $box.addEventListener('touchstart', onTouchStart, false)
+    }) ()
+  </script>
+</body>
+</html>
