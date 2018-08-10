@@ -16,12 +16,19 @@ class Point {
   }
 }
 
+/* equal to 
+Point.prototype = {
+  constructor () {},
+  toString () {}
+}
+*/
+
 // validate 
 console.log(Point.prototype.constructor === Point)
 console.log(Point.prototype.toString)
 console.log(Point.prototype.constructor)
 
-//  must use keyword `new` to construct a new instance
+//  must use keyword `new` to create a new instance of a class in es6
 var p = new Point(10, 10)
 console.log(`p.constructor === Point.prototype.constructor: ${p.constructor === Point.prototype.constructor}`)
 console.log(`p.constructor === Point: ${p.constructor === Point}`)
@@ -30,7 +37,10 @@ console.log(`p.constructor === Point: ${p.constructor === Point}`)
 console.log(`p has own protoperty x:${p.hasOwnProperty('x')}`)
 console.log(`p has own protoperty toString: ${p.hasOwnProperty('toString')}`)
 
-// The prototype object owned by its all the instance object
+// All the instances of a class share the same prototype object
 var p2 = new Point(5, 5)
-console.log(`p2.__proto__ === p2.__proto__: ${p2.__proto__ === p2.__proto__}`)
+console.log(`p2.__proto__ === p2.__proto__: ${p1.__proto__ === p2.__proto__}`)
+
+// Object.getPrototypeOf helps u to get the prototype Object of an object
+console.log(Object.getPrototypeOf(p1))
 
