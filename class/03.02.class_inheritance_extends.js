@@ -4,7 +4,7 @@ class Point {
     this.y = y
   }
 
-  toString() {
+  logPosition() {
     console.log(`(${this.x}, ${this.y})`)
   }
 }
@@ -24,13 +24,15 @@ class ColorPoint extends Point {
     /** Use constructor of paretn class by keyword super
     * must use keyword 'super' as the child class do not have this keyword, otherwise will meet error
     * keyword `super` must be before keyword this
+    * creating instance of parent class first, operate  instance of sub class later.
     **/
     super(x, y)
     this.color = color
   }
 
-  toString() {
-    return this.color + super.toString()
+  logPosition() {
+    // super: must call super if the subinstance wants to use parent class's function
+    super.toString()
   }
 }
 
@@ -40,9 +42,6 @@ console.log(`cPoint is instanceof ColorPoint: ${cPoint instanceof ColorPoint}`)
 console.log(`cPoint is instanceof Point: ${cPoint instanceof Point}`)
 
 
-/**
-* how to get the parent class of a class Object
-**/
-
-console.log(`Object.getPrototypeOf(ColorPoint) === Point: ${Object.getPrototypeOf(ColorPoint) === Point}`)
+// ColorPoint.prototype is not equal to Point.prototype
+console.log(`ColorPoint.prototype === Point.prototype: ${ColorPoint.prototype === Point.prototype}`)
 

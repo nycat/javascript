@@ -22,13 +22,11 @@ try {
 
 class Logger2 {
   constructor () {
-    console.log(this, 'in constructor')
     this.printName = this.printName.bind(this)
   }
 
   printName (name = 'there') {
-    console.log(this)
-    this.print(`Hello ${name}`);
+    console.log('hello, world')
   }
 
   print (text) {
@@ -39,4 +37,21 @@ class Logger2 {
 const logger2 = new Logger2()
 let { printName } = logger
 
-printName()
+try {
+  printName()
+} catch (e) {
+  console.log(e)
+}
+
+// solution2: using arra function
+
+
+class Logger3 {
+  printName(name = 'there') {
+    this.print(`Hello ${name}`);
+  }
+
+  print(text) {
+    console.log(text);
+  }
+}
