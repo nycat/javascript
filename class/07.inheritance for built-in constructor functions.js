@@ -26,13 +26,14 @@ MyArray.prototype = Object.create(Array.prototype, {
 })
 
 // In es5, the behavior of myArray class is completely inconsistent with Array.
-// reason: sub class cant  get the inner property of built in class
-// In es5, build sub instance first, then bind the properties of parent class to sub class instance.
+// The reason is that sub class can't  get the inner property of the built in class.
+// The deeper reason is, in es5, js engine builds sub instance first and binds the properties of parent class to sub class instance second.
 var myArray = new MyArray(10)
 console.log(myArray.length) //0
 
 
-// In es6, the behavior of sub class  is completely consistent with built-in class.
+// The behavior of sub class  is completely consistent with built-in class.
+// as  in es6, built parent class's instance first, then bind this to sub class's instance
 class MyArray2 extends Array{
   constructor (...rest) {
     super(...rest)
