@@ -1,5 +1,11 @@
 .DS_Store
 
+# dependencies
+node_modules
+
+package.json
+package-lock.json
+
 # Editor directories and files
 .idea
 .vscode
