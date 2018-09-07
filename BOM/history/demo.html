@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>html5: history</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
+</head>
+<body>
+  <div class="container">
+    <div class="hero">
+      <div class="hero-body">
+        <h1 class="title">Hello, world</h1>
+        <h2>demo.html</h2>
+      </div>
+    </div>
+    <div class="btn-grouop">
+      <div class="btn btn-back button is-small">Go Back</div>
+      <div class="btn btn-next button is-small">Go Next</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var $goBackBtn = document.querySelector('.btn-back')
+      var $goNextBtn = document.querySelector('.btn-next')
+
+      $goBackBtn.addEventListener('click', function() {
+        history.go(-1)
+      })
+      $goNextBtn.addEventListener('click', function() {
+        history.go(1)
+      })
+
+    })()
+  </script>
+</body>
+</html>
