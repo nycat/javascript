@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>html5-history: load content demo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
+  <style>
+      #topicBox {
+        transition: opacity 0.5s ease-in;
+        opacity: 1;
+      }
+      #topicBox.is-loading {
+        opacity: 0.5;
+      }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="btn-group" id="tabBox">
+      <button class="button is-small">good</button>
+      <button class="button is-small">share</button>
+      <button class="button is-small">ask</button>
+      <button class="button is-small">job</button>
+    </div>
+    <div>
+        <button onclick="history.go(-1)" class="button is-small">prev</button>
+        <button onclick="history.go(1)" class="button is-small">next</button>
+    </div>
+    <div class="section content">
+      <div class="header">
+        <h2 class="title">good</h2>
+        <hr>
+      </div>
+      <div class="topics is-loading" id="topicBox">
+        is loading...
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
+  <script>
+    (function () {
+      var $tabBox = document.getElementById('tabBox')
+      var $topicBox = document.getElementById('topicBox')
+      var $topicTitle = document.querySelector('.title')
+      
+      $tabBox.addEventListener('click', function (e) {
+        var $target = e.target
+        if($target.classList.contains('button')) {
+          var tab = $target.innerHTML
+          loadAndRenderTopics(tab)
+        }
+      })
+
+      function loadAndRenderTopics (topicTab) {
+        $topicTitle.innerHTML = topicTab
+        $topicBox.classList.add('is-loading')
+        history.pushState({page: topicTab}, null, `#${topicTab}`)
+        axios.get(`https://cnodejs.org/api/v1/topics?tab=${topicTab}&limit=5`)
+          .then(({data}) => {
+           let topics = data.data.map(topic => {
+             return `<li class="topic"><p>${topic.title}</p></li>`
+           })
+           $topicBox.innerHTML = `
+            <ol>
+              ${topics}
+            </ol>
+           `
+           $topicBox.classList.remove('is-loading')
+        }).catch(e => {
+          console.log(e)
+          $topicBox.classList.remove('is-loading')
+        })
+      }
+
+
+      loadAndRenderTopics('good')
+      window.addEventListener('popstate', function(e){
+        var page = e.state.page
+        if (page) {
+          loadAndRenderTopics(page)
+        }
+      })
+      window.addEventListener('hashchange', function(e) {
+        console.log(e)
+      })
+      }) ()
+  </script>
+</body>
+</html>
