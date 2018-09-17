@@ -7,3 +7,14 @@ console.log(s)
 let {toString: hello} = true
 console.log(hello)
 
+
+/* example 2:
+ As can transfer neither undefined nor null into an object,  deconstruction them occurs error. 
+*/
+try {
+  let { prop: x } = undefined
+  let { prop: y } = null
+  console.log(x, y)
+} catch (e) {
+  console.log(e)
+}
